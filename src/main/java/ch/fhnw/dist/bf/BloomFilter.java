@@ -46,14 +46,9 @@ public class BloomFilter {
 
     private int[] getTrueBits(String s){
         int[] result = new int[k];
-        HashFunction hashingFunction = Hashing.murmur3_128();
-        int bitToSet = Math.abs(hashingFunction.hashString(s, charset).asInt()) % m;
-        result[0] = bitToSet;
 
-        for(int i = 1; i < k; i++){
-            hashingFunction = Hashing.murmur3_128(i);
-            bitToSet = Math.abs(hashingFunction.hashString(s, charset).asInt()) % m;
-            result[1] = bitToSet;
+        for(int i = 0; i < k; i++){
+            result[i] = Math.abs(Hashing.murmur3_128(i).hashString(s, charset).asInt()) % m;
         }
 
         return result;

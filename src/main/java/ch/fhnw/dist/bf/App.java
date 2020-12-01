@@ -1,5 +1,6 @@
 package ch.fhnw.dist.bf;
 
+import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
@@ -32,8 +33,8 @@ public class App {
         System.out.println(String.format("n: %d", n));
         System.out.println(String.format("k: %d", k));
         System.out.println(String.format("m: %d", m));
-        System.out.println(String.format("p: %f", p));
-        System.out.println(String.format("Tested p: %f", checkBloomFilterP(bloomFilter, filterList, 100000)));
+        System.out.println(String.format("p: %.2f %%", p*100));
+        System.out.println(String.format("Tested p: %.2f %%", checkBloomFilterP(bloomFilter, filterList, 100000)*100));
     }
 
     /**
